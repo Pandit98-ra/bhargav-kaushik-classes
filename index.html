@@ -29,7 +29,6 @@
         nav a { text-decoration: none; color: var(--dark); margin-left: 15px; font-weight: 600; }
         .cta-nav { background: var(--accent); color: white !important; padding: 8px 15px; border-radius: 5px; }
 
-        /* Hero Banner Modifications */
         .hero {
             background: linear-gradient(135deg, rgba(10, 61, 98, 0.95), rgba(60, 99, 130, 0.9)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             color: white; padding: 180px 5% 100px 5%; text-align: center;
@@ -45,7 +44,6 @@
         }
         .btn-trigger:hover { transform: translateY(-3px); background: #d35400; }
 
-        /* Separate Course Matrix Grid Styling */
         .academic-section { padding: 80px 5%; background: white; text-align: center; }
         .section-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
         .section-subtitle { color: var(--secondary); margin-bottom: 50px; font-weight: 500; font-size: 1.1rem; }
@@ -70,7 +68,7 @@
         .board-tag { display: inline-block; background: #0984e3; color: white; padding: 1px 5px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; margin-left: 5px; }
         .board-tag.hbse { background: #e17055; }
 
-        /* Popup Form Overlay Interface Styling */
+        /* Popups Configurations */
         .form-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.7); display: none; justify-content: center;
@@ -104,7 +102,14 @@
         }
         .btn-submit:hover { background: #128C7E; }
 
-        /* Location and Map Configuration */
+        /* Brand New Success Screen Placement */
+        .thanks-screen {
+            display: none; text-align: center; padding: 20px 10px;
+        }
+        .thanks-screen h4 { color: #2ecc71; font-size: 1.8rem; margin-bottom: 15px; }
+        .thanks-screen p { color: var(--dark); font-size: 1.05rem; margin-bottom: 20px; font-weight: 500; }
+        .thanks-screen .box-info { background: var(--light); padding: 15px; border-radius: 5px; font-size: 0.9rem; text-align: left; border-left: 4px solid var(--accent); margin-bottom: 25px;}
+
         .contact-zone { padding: 60px 5%; background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .address-box { background: white; padding: 20px; border-left: 5px solid var(--accent); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .map-container { border-radius: 8px; overflow: hidden; height: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
@@ -131,21 +136,17 @@
         </nav>
     </header>
 
-    <!-- Main Front Hero Screen -->
     <section class="hero" id="home">
         <h2>Premium Education & Language Institute</h2>
         <p>Your pathway to massive scores in CBSE/HBSE board setups and targeted global benchmarks for IELTS candidates.</p>
-        <!-- The Main Trigger Button -->
         <button class="btn-trigger" onclick="openBookingForm()">Book Paid Demo Class</button>
     </section>
 
-    <!-- Detailed Columns Setup Section -->
     <section class="academic-section" id="courses">
         <h2 class="section-title">Academic Wings & Programs</h2>
         <p class="section-subtitle">Dedicated Subject Batches Built for Comprehensive Board Requirements</p>
         
         <div class="class-grid">
-            <!-- 3rd to 5th Wing Column -->
             <div class="class-column">
                 <h3>Primary Wing</h3>
                 <ul>
@@ -157,7 +158,6 @@
                 </ul>
             </div>
 
-            <!-- 6th to 8th Wing Column -->
             <div class="class-column">
                 <h3>Middle School</h3>
                 <ul>
@@ -169,7 +169,6 @@
                 </ul>
             </div>
 
-            <!-- 9th to 12th Wing Column -->
             <div class="class-column">
                 <h3>High Secondary</h3>
                 <ul>
@@ -181,7 +180,6 @@
                 </ul>
             </div>
 
-            <!-- Advanced IELTS & Language Column -->
             <div class="class-column premium">
                 <h3>IELTS Mastery</h3>
                 <ul>
@@ -193,7 +191,6 @@
                 </ul>
             </div>
 
-            <!-- Advanced Spoken English Column -->
             <div class="class-column premium">
                 <h3>Spoken English</h3>
                 <ul>
@@ -207,76 +204,93 @@
         </div>
     </section>
 
-    <!-- POPUP DETAILS INTERFACE OVERLAY BLOCK (Hidden by Default) -->
+    <!-- POPUP DETAILS INTERLAY LOGIC CONFIGURATION -->
     <div class="form-overlay" id="bookingOverlay">
         <div class="form-interface">
             <span class="close-btn" onclick="closeBookingForm()">&times;</span>
-            <h3>Registration Details</h3>
-            <p class="note">⚠️ Note: Demo Session Registration is Paid</p>
             
-            <form id="demoRegisterForm">
-                <div class="form-group">
-                    <label for="stdName">Student Full Name:</label>
-                    <input type="text" id="stdName" placeholder="Enter student name" required>
-                </div>
-
-                <div class="form-grid-2">
+            <!-- Active Input Form State -->
+            <div id="formFieldsState">
+                <h3>Registration Details</h3>
+                <p class="note">⚠️ Note: Demo Session Registration is Paid</p>
+                
+                <form id="demoRegisterForm">
                     <div class="form-group">
-                        <label for="stdFather">Father's Name:</label>
-                        <input type="text" id="stdFather" placeholder="Father's name" required>
+                        <label for="stdName">Student Full Name:</label>
+                        <input type="text" id="stdName" placeholder="Enter student name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="stdMobile">Mobile Number:</label>
-                        <input type="tel" id="stdMobile" placeholder="10-digit phone number" required>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="stdFather">Father's Name:</label>
+                            <input type="text" id="stdFather" placeholder="Father's name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stdMobile">Mobile Number:</label>
+                            <input type="tel" id="stdMobile" placeholder="10-digit phone number" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="stdAddress">Complete Home Address:</label>
-                    <textarea id="stdAddress" placeholder="Enter street, village/colony details" required></textarea>
-                </div>
-
-                <div class="form-grid-2">
                     <div class="form-group">
-                        <label for="stdCourse">Select Stream/Course:</label>
-                        <select id="stdCourse" onchange="checkCourseSelection()">
-                            <option value="School Tuition">School Tuition (3rd-12th)</option>
-                            <option value="IELTS Masterclass">IELTS Masterclass</option>
-                            <option value="Spoken English Fluency">Spoken English Fluency</option>
+                        <label for="stdAddress">Complete Home Address:</label>
+                        <textarea id="stdAddress" placeholder="Enter street, village/colony details" required></textarea>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="stdCourse">Select Stream/Course:</label>
+                            <select id="stdCourse" onchange="checkCourseSelection()">
+                                <option value="School Tuition">School Tuition (3rd-12th)</option>
+                                <option value="IELTS Masterclass">IELTS Masterclass</option>
+                                <option value="Spoken English Fluency">Spoken English Fluency</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="boardSelectWrapper">
+                            <label for="stdBoard">Educational Board:</label>
+                            <select id="stdBoard">
+                                <option value="CBSE Board">CBSE Board</option>
+                                <option value="HBSE Board">HBSE Board</option>
+                                <option value="Not Applicable">Not Applicable</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="classSelectWrapper">
+                        <label for="stdClass">Select Target Class (For Tuition Only):</label>
+                        <select id="stdClass">
+                            <option value="3rd Class">3rd Class</option>
+                            <option value="4th Class">4th Class</option>
+                            <option value="5th Class">5th Class</option>
+                            <option value="6th Class">6th Class</option>
+                            <option value="7th Class">7th Class</option>
+                            <option value="8th Class">8th Class</option>
+                            <option value="9th Class">9th Class</option>
+                            <option value="10th Class">10th Class</option>
+                            <option value="11th Class">11th Class</option>
+                            <option value="12th Class">12th Class</option>
                         </select>
                     </div>
-                    <div class="form-group" id="boardSelectWrapper">
-                        <label for="stdBoard">Educational Board:</label>
-                        <select id="stdBoard">
-                            <option value="CBSE Board">CBSE Board</option>
-                            <option value="HBSE Board">HBSE Board</option>
-                            <option value="Not Applicable">Not Applicable</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="form-group" id="classSelectWrapper">
-                    <label for="stdClass">Select Target Class (For Tuition Only):</label>
-                    <select id="stdClass">
-                        <option value="3rd Class">3rd Class</option>
-                        <option value="4th Class">4th Class</option>
-                        <option value="5th Class">5th Class</option>
-                        <option value="6th Class">6th Class</option>
-                        <option value="7th Class">7th Class</option>
-                        <option value="8th Class">8th Class</option>
-                        <option value="9th Class">9th Class</option>
-                        <option value="10th Class">10th Class</option>
-                        <option value="11th Class">11th Class</option>
-                        <option value="12th Class">12th Class</option>
-                    </select>
-                </div>
+                    <button type="button" class="btn-submit" onclick="processRegistration()">Send Details via WhatsApp</button>
+                </form>
+            </div>
 
-                <button type="button" class="btn-submit" onclick="processRegistration()">Submit Details & Pay Fee</button>
-            </form>
+            <!-- Beautiful Internal Website Thank You Interface (Comes after hitting submit) -->
+            <div id="thanksMessageState" class="thanks-screen">
+                <h4>✓ Details Submitted!</h4>
+                <p>Thank you for choosing Bhargav Kaushik Academy.</p>
+                <div class="box-info">
+                    <strong>Next Steps for Student:</strong><br>
+                    1. Send the generated WhatsApp message in your chat track.<br>
+                    2. Our desk team will share the fee transaction link directly.<br>
+                    3. Once confirmed, your entry demo slot timing will activate.
+                </div>
+                <button type="button" class="btn-trigger" style="padding:10px 25px; font-size:1rem;" onclick="closeBookingForm()">Close Window</button>
+            </div>
+
         </div>
     </div>
 
-    <!-- Location & Directions Zone -->
     <section class="contact-zone" id="contact">
         <div class="contact-info">
             <h3>Visit Our Premium Facility</h3>
@@ -296,9 +310,11 @@
         <p>&copy; 2026 Bhargav Kaushik Academy. All Rights Reserved.</p>
     </footer>
 
-    <!-- Interactive Layer Function Logic Control Script -->
     <script>
         function openBookingForm() {
+            // Reset the popup view states back to input fields whenever it's re-opened
+            document.getElementById('formFieldsState').style.display = 'block';
+            document.getElementById('thanksMessageState').style.display = 'none';
             document.getElementById('bookingOverlay').style.display = 'flex';
         }
 
@@ -336,33 +352,35 @@
 
             var destinationNumber = "919896470813";
             
-            // Constructs the precise text information block
-            var messageHeader = "🚨 *NEW DEMO ENTRY RECIEVED* 🚨\n\n";
-            var studentDetails = "• *Student Name:* " + name + "\n" +
-                                 "• *Father's Name:* " + father + "\n" +
-                                 "• *Mobile Number:* " + mobile + "\n" +
-                                 "• *Home Address:* " + address + "\n";
+            // This is ONLY what the student sends to you via WhatsApp text block
+            var absoluteMessage = "🚨 *NEW DEMO ENTRY RECIEVED* 🚨\n\n" +
+                                  "• *Student Name:* " + name + "\n" +
+                                  "• *Father's Name:* " + father + "\n" +
+                                  "• *Mobile Number:* " + mobile + "\n" +
+                                  "• *Home Address:* " + address + "\n";
             
-            var academicDetails = "";
             if(course === "School Tuition") {
-                academicDetails = "• *Stream:* Tuition (" + targetClass + " - " + board + ")\n\n";
+                absoluteMessage += "• *Course Stream:* Tuition (" + targetClass + " - " + board + ")\n";
             } else {
-                academicDetails = "• *Stream:* " + course + "\n\n";
+                absoluteMessage += "• *Course Stream:* " + course + "\n";
             }
-
-            // Institute Official Instant Automated Response Text
-            var thankYouNote = "--------------------------------------\n" +
-                               "📨 *INSTITUTE ACKNOWLEDGEMENT MESSAGE:*\n" +
-                               "\"Thank you for applying at *Bhargav Kaushik Academy, Raipur Rani*. We have logged your details successfully. Your demonstration allocation requires a verification charge. Please await our digital payment directions link to secure your slot seat timing.\"";
-
-            var absoluteMessage = messageHeader + studentDetails + academicDetails + thankYouNote;
             
+            absoluteMessage += "\n_Please send me the paid demo fee registration details._";
+
+            // 1. Open the WhatsApp tab to dispatch data
             var dispatchLink = "https://wa.me/" + destinationNumber + "?text=" + encodeURIComponent(absoluteMessage);
             window.open(dispatchLink, '_blank');
-            closeBookingForm();
+            
+            // 2. Hide input form fields inside the popup card framework
+            document.getElementById('formFieldsState').style.display = 'none';
+            
+            // 3. Reveal the premium Thank You screen message inside the container
+            document.getElementById('thanksMessageState').style.display = 'block';
+            
+            // Reset form fields
+            document.getElementById('demoRegisterForm').reset();
         }
 
-        // Initialize display configuration defaults
         checkCourseSelection();
     </script>
 </body>
