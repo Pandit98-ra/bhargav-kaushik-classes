@@ -297,3 +297,61 @@
     </script>
 </body>
 </html>
+<script>
+    // Shows or hides Class/Board fields depending on option chosen
+    function toggleFormFields() {
+        var cat = document.getElementById('courseCategory').value;
+        var classGrp = document.getElementById('classGroup');
+        var boardGrp = document.getElementById('boardGroup');
+        
+        if (cat === "School Tuition") {
+            classGrp.style.display = "block";
+            boardGrp.style.display = "block";
+        } else {
+            classGrp.style.display = "none";
+            boardGrp.style.display = "none";
+        }
+    }
+
+    function sendToWhatsApp() {
+        var name = document.getElementById('studentName').value.trim();
+        var category = document.getElementById('courseCategory').value;
+        var board = document.getElementById('boardType').value;
+        var classLvl = document.getElementById('classLevel').value;
+        
+        if (name === "") {
+            alert("Please enter the student name first!");
+            return;
+        }
+
+        var phoneNumber = "919896470813"; 
+        var detailedStreamText = "";
+
+        if (category === "School Tuition") {
+            detailedStreamText = "School Tuition for " + classLvl + " (" + board + ")";
+        } else {
+            detailedStreamText = category;
+        }
+        
+        // --- PRE-FILLED OFFICIAL APPLICATION MESSAGE ---
+        var message = "📝 *OFFICIAL ADMISSION PORTAL - BHARGAV KAUSHIK ACADEMY*\n" +
+                      "--------------------------------------------------\n" +
+                      "Hello Bhargav Sir,\n\n" +
+                      "I have successfully applied for a demo session via your official website.\n\n" +
+                      "👤 *Student Name:* " + name + "\n" +
+                      "📚 *Course/Class:* " + detailedStreamText + "\n" +
+                      "📌 *Status:* Registration Initiated (Paid Demo Required)\n\n" +
+                      "--------------------------------------------------\n" +
+                      "⚠️ *THANK YOU MESSAGE FROM INSTITUTE:* \n" +
+                      "\"Thank you for choosing Bhargav Kaushik Classes, Raipur Rani! Your seat preference has been locked. Please reply to this chat to receive our official UPI/QR Code payment link to finalize your Demo Session timing.\"";
+        
+        // Encode the text properly for browser compatibility
+        var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+        
+        // Open the WhatsApp window
+        window.open(whatsappURL, '_blank');
+    }
+    
+    // Run setup on first load
+    toggleFormFields();
+</script>
