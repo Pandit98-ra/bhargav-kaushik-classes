@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhargav Kaushik IELTS, Spoken & School Tuition Classes | Raipur Rani</title>
+    <title>Bhargav Kaushik Classes | IELTS, Spoken & School Tuition Raipur Rani</title>
     <style>
         :root {
             --primary: #0a3d62;
@@ -25,62 +25,73 @@
 
         .logo h1 { color: var(--primary); font-size: 1.4rem; }
         .logo span { color: var(--accent); }
-        nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 600; }
+        nav a { text-decoration: none; color: var(--dark); margin-left: 15px; font-weight: 600; }
         .cta-nav { background: var(--accent); color: white !important; padding: 8px 15px; border-radius: 5px; }
 
         .hero {
             background: linear-gradient(135deg, rgba(10, 61, 98, 0.95), rgba(60, 99, 130, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: white; padding: 160px 5% 80px 5%; text-align: center;
+            color: white; padding: 150px 5% 60px 5%; text-align: center;
         }
 
-        .hero h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px auto; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 25px auto; }
 
         /* Booking Form Styles */
         .booking-container {
-            max-width: 450px; background: white; margin: 30px auto 0 auto; padding: 25px;
+            max-width: 480px; background: white; margin: 20px auto 0 auto; padding: 25px;
             border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); color: var(--text); text-align: left;
         }
 
-        .booking-container h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.4rem; text-align: center; }
-        .price-tag { color: var(--accent); font-weight: bold; text-align: center; margin-bottom: 15px; font-size: 1.1rem; }
+        .booking-container h3 { color: var(--primary); margin-bottom: 5px; font-size: 1.4rem; text-align: center; }
+        .price-tag { color: var(--accent); font-weight: bold; text-align: center; margin-bottom: 15px; font-size: 0.95rem; }
         
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        .form-row { display: flex; gap: 10px; margin-bottom: 12px; }
+        .form-group { flex: 1; margin-bottom: 12px; }
+        .form-group.full { width: 100%; }
+        
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.85rem; color: var(--dark); }
         .form-group input, .form-group select {
-            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1.0rem;
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 0.95rem; background: white;
         }
 
         .btn-submit {
             display: block; width: 100%; background: #25D366; color: white; padding: 12px;
             border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
-            text-align: center; text-decoration: none; transition: background 0.3s;
+            text-align: center; text-decoration: none; transition: background 0.3s; margin-top: 5px;
         }
         .btn-submit:hover { background: #128C7E; }
 
-        /* Offerings Section */
-        .programs { padding: 60px 5%; background: white; text-align: center; }
+        /* Separated Course Columns Section */
+        .academic-section { padding: 60px 5%; background: white; text-align: center; }
         .section-title { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
-        .section-subtitle { font-size: 1.1rem; color: #666; margin-bottom: 40px; }
+        .section-subtitle { color: var(--secondary); margin-bottom: 40px; font-weight: 500; }
         
-        .grid-services {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto;
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px; max-width: 1200px; margin: 0 auto;
         }
 
-        .service-card {
-            background: var(--light); padding: 25px; border-radius: 8px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
+        .class-column {
+            background: var(--light); padding: 25px; border-radius: 8px; text-align: left;
+            border-top: 4px solid var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
+        .class-column.premium { border-top-color: var(--accent); }
 
-        .service-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.25rem; }
-        .service-card ul { list-style-type: none; }
-        .service-card li { margin-bottom: 8px; position: relative; padding-left: 20px; }
-        .service-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .class-column h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.25rem; border-bottom: 2px solid #ddd; padding-bottom: 8px; }
+        .class-column.premium h3 { color: var(--accent); }
+        
+        .class-column ul { list-style: none; }
+        .class-column li { margin-bottom: 10px; font-size: 0.95rem; display: flex; align-items: center; }
+        .class-column li::before { content: "✓"; color: #2ecc71; font-weight: bold; margin-right: 8px; }
 
-        .badge-board {
-            background: var(--accent); color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.8rem; font-weight: bold; margin-left: 5px;
+        .board-tag {
+            display: inline-block; background: #e17055; color: white; padding: 2px 6px; 
+            font-size: 0.75rem; font-weight: bold; border-radius: 3px; margin-left: 5px;
         }
+        .board-tag.cbse { background: #0984e3; }
 
+        /* Location Layout */
         .contact-zone { padding: 60px 5%; background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .address-box { background: white; padding: 20px; border-left: 5px solid var(--accent); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .map-container { border-radius: 8px; overflow: hidden; height: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
@@ -88,111 +99,131 @@
 
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; text-align: center; position: relative; }
-            nav a { margin: 0 10px; }
-            .hero { padding-top: 40px; }
-            .hero h2 { font-size: 1.8rem; }
+            nav a { margin: 0 8px; }
+            .hero { padding-top: 30px; }
+            .hero h2 { font-size: 1.7rem; }
+            .form-row { flex-direction: column; gap: 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><h1>Bhargav Kaushik <span>Educational Academy</span></h1></div>
+        <div class="logo"><h1>Bhargav Kaushik <span>Academy</span></h1></div>
         <nav>
             <a href="#home">Home</a>
-            <a href="#courses">Our Courses</a>
-            <a href="#contact">Contact</a>
+            <a href="#courses">Our Classes</a>
+            <a href="#contact">Contact Us</a>
             <a href="tel:+919896470813" class="cta-nav">Call Now</a>
         </nav>
     </header>
 
     <section class="hero" id="home">
-        <h2>Your Gateway to Academic Success & Global Opportunities</h2>
-        <p>Expert School Tuitions (3rd to 12th) alongside premium IELTS & Spoken English Training in Raipur Rani, Haryana.</p>
+        <h2>Expert Education & Language Training Centre</h2>
+        <p>Specialized regular tuition batches for School Students along with masterclasses for IELTS & Fluency aspirants.</p>
         
-        <!-- Live Booking Form Box -->
+        <!-- Live Dynamic Multi-Select Booking Form Box -->
         <div class="booking-container">
             <h3>Book Your Demo Session</h3>
-            <div class="price-tag">⚠️ Note: Demo Sessions are Paid</div>
+            <div class="price-tag">⚠️ Note: All Demo Sessions are Paid</div>
             
-            <div class="form-group">
+            <div class="form-group full">
                 <label for="studentName">Student Name:</label>
-                <input type="text" id="studentName" placeholder="Enter student's full name" required>
+                <input type="text" id="studentName" placeholder="Enter full name" required>
             </div>
             
-            <div class="form-group">
-                <label for="courseType">Select Program Stream:</label>
-                <select id="courseType" onchange="toggleFormOptions()">
-                    <option value="School Tuition (3rd-12th)">School Tuition (3rd to 12th Standard)</option>
-                    <option value="IELTS Coaching">IELTS Academic / General</option>
-                    <option value="Spoken English">Spoken English & Fluency</option>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="courseCategory">Select Stream:</label>
+                    <select id="courseCategory" onchange="toggleFormFields()">
+                        <option value="School Tuition">School Tuition (3rd-12th)</option>
+                        <option value="IELTS Preparation">IELTS Masterclass</option>
+                        <option value="Spoken English">Spoken English Development</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="boardGroup">
+                    <label for="boardType">Select Board:</label>
+                    <select id="boardType">
+                        <option value="CBSE Board">CBSE Board</option>
+                        <option value="HBSE Board">HBSE Board</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full" id="classGroup">
+                <label for="classLevel">Select Target Class:</label>
+                <select id="classLevel">
+                    <option value="3rd Class">3rd Class</option>
+                    <option value="4th Class">4th Class</option>
+                    <option value="5th Class">5th Class</option>
+                    <option value="6th Class">6th Class</option>
+                    <option value="7th Class">7th Class</option>
+                    <option value="8th Class">8th Class</option>
+                    <option value="9th Class">9th Class</option>
+                    <option value="10th Class">10th Class</option>
+                    <option value="11th Class">11th Class</option>
+                    <option value="12th Class">12th Class</option>
                 </select>
             </div>
 
-            <!-- School Details Panel (Hidden dynamically if IELTS/Spoken selected) -->
-            <div id="schoolOptions">
-                <div class="form-group">
-                    <label for="boardType">Select School Board:</label>
-                    <select id="boardType">
-                        <option value="CBSE Board">CBSE Board</option>
-                        <option value="HBSE Board">HBSE Board (Haryana Board)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="classLevel">Select Class/Standard:</label>
-                    <select id="classLevel">
-                        <option value="Primary (3rd - 5th)">3rd to 5th Class</option>
-                        <option value="Middle (6th - 8th)">6th to 8th Class</option>
-                        <option value="High School (9th - 10th)">9th & 10th Class</option>
-                        <option value="Senior Secondary (11th - 12th)">11th & 12th Class</option>
-                    </select>
-                </div>
-            </div>
-
             <button type="button" class="btn-submit" onclick="sendToWhatsApp()">
-                Book via WhatsApp (Get Details)
+                Book via WhatsApp (Get Registration Link)
             </button>
         </div>
     </section>
 
-    <!-- Detailed Programs Offered -->
-    <section class="programs" id="courses">
-        <h2 class="section-title">Our Learning Programs</h2>
-        <p class="section-subtitle">Comprehensive mentoring under one roof in Raipur Rani</p>
+    <!-- Separated Columns Layout Section -->
+    <section class="academic-section" id="courses">
+        <h2 class="section-title">Complete Academic Programs</h2>
+        <p class="section-subtitle">Dedicated Separate Batches for CBSE & HBSE Curriculums</p>
         
-        <div class="grid-services">
-            <!-- Card 1: School Academic Foundation -->
-            <div class="service-card">
-                <h3>School Tuitions <span class="badge-board">CBSE & HBSE</span></h3>
-                <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">For Classes 3rd to 12th Standard</p>
+        <div class="class-grid">
+            <!-- Column 1: Lower Primary -->
+            <div class="class-column">
+                <h3>Primary Wing</h3>
                 <ul>
-                    <li>Deep syllabus coverage tracking board patterns closely.</li>
-                    <li>Concept clearing methods with regular weekly tracking tests.</li>
-                    <li>Special focus on core science, mathematics, and language layouts.</li>
-                    <li>Exam preparation blueprints tailored for final board scores.</li>
+                    <li>Classes: 3rd, 4th & 5th</li>
+                    <li>All Subjects Covered</li>
+                    <li>Strong Basic Concept Building</li>
+                    <li>Weekly Conceptual Tests</li>
+                    <li><span>Boards: CBSE <div class="board-tag cbse">CBSE</div> & HBSE <div class="board-tag">HBSE</div></span></li>
                 </ul>
             </div>
 
-            <!-- Card 2: International Language Prep -->
-            <div class="service-card">
-                <h3>IELTS Coaching</h3>
-                <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Academic & General Tracks</p>
+            <!-- Column 2: Middle School -->
+            <div class="class-column">
+                <h3>Middle Wing</h3>
                 <ul>
-                    <li>Daily 1-on-1 speaking evaluation drills.</li>
-                    <li>Writing module template fixes for Task 1 and Task 2.</li>
-                    <li>Time management shortcuts for Reading & Listening paths.</li>
-                    <li>Full mock evaluation environments with benchmark scoring.</li>
+                    <li>Classes: 6th, 7th & 8th</li>
+                    <li>Maths, Science & English Focus</li>
+                    <li>Daily Homework Tracking</li>
+                    <li>Special Grammar Foundations</li>
+                    <li><span>Boards: CBSE <div class="board-tag cbse">CBSE</div> & HBSE <div class="board-tag">HBSE</div></span></li>
                 </ul>
             </div>
 
-            <!-- Card 3: Fluency Integration -->
-            <div class="service-card">
-                <h3>Spoken English</h3>
-                <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Personality Development</p>
+            <!-- Column 3: High School & Board Prep -->
+            <div class="class-column">
+                <h3>High & Secondary</h3>
                 <ul>
-                    <li>Grammar correction, vocabulary build, and tone accent checks.</li>
-                    <li>Hesitation removal exercises via group interaction formats.</li>
-                    <li>Confidence building modules for interviews and presentations.</li>
+                    <li>Classes: 9th, 10th, 11th & 12th</li>
+                    <li>Rigorous Board Exam Coaching</li>
+                    <li>Previous Years Paper Solving</li>
+                    <li>Syllabus Completed Well in Advance</li>
+                    <li><span>Boards: CBSE <div class="board-tag cbse">CBSE</div> & HBSE <div class="board-tag">HBSE</div></span></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Professional Language Wing -->
+            <div class="class-column premium">
+                <h3>Language Mastery</h3>
+                <ul>
+                    <li>IELTS Academic & General</li>
+                    <li>Spoken English Batches</li>
+                    <li>1-on-1 Interview Simulations</li>
+                    <li>Hesitation Removal Drills</li>
+                    <li>Ideal for Study Visa Candidates</li>
                 </ul>
             </div>
         </div>
@@ -202,7 +233,7 @@
         <div class="contact-info">
             <h3>Visit Our Premium Facility</h3>
             <div class="address-box">
-                <p><strong>Bhargav Kaushik Academy</strong></p>
+                <p><strong>Bhargav Kaushik IELTS & Spoken Classes</strong></p>
                 <p>On Road, First Floor, Above Royal Enfield Showroom (KBS Wheels),</p>
                 <p>Near TVS Agency, Barwala Road, Raipur Rani, Haryana 134204</p>
             </div>
@@ -217,44 +248,52 @@
         <p>&copy; 2026 Bhargav Kaushik Academy. All Rights Reserved.</p>
     </footer>
 
-    <!-- Form Logic Script -->
     <script>
-        function toggleFormOptions() {
-            var course = document.getElementById('courseType').value;
-            var schoolOptions = document.getElementById('schoolOptions');
-            if(course === "School Tuition (3rd-12th)") {
-                schoolOptions.style.display = "block";
+        // Shows or hides Class/Board fields depending on option chosen
+        function toggleFormFields() {
+            var cat = document.getElementById('courseCategory').value;
+            var classGrp = document.getElementById('classGroup');
+            var boardGrp = document.getElementById('boardGroup');
+            
+            if (cat === "School Tuition") {
+                classGrp.style.display = "block";
+                boardGrp.style.display = "block";
             } else {
-                schoolOptions.style.display = "none";
+                classGrp.style.display = "none";
+                boardGrp.style.display = "none";
             }
         }
 
         function sendToWhatsApp() {
             var name = document.getElementById('studentName').value.trim();
-            var course = document.getElementById('courseType').value;
+            var category = document.getElementById('courseCategory').value;
+            var board = document.getElementById('boardType').value;
+            var classLvl = document.getElementById('classLevel').value;
             
             if (name === "") {
-                alert("Please enter the student's name first!");
+                alert("Please enter the student name first!");
                 return;
             }
 
             var phoneNumber = "919896470813"; 
-            var finalDetails = course;
+            var detailedStreamText = "";
 
-            // Gather extra board info if it's school tuition
-            if(course === "School Tuition (3rd-12th)") {
-                var board = document.getElementById('boardType').value;
-                var level = document.getElementById('classLevel').value;
-                finalDetails += " (" + level + ", " + board + ")";
+            if (category === "School Tuition") {
+                detailedStreamText = "School Tuition for " + classLvl + " (" + board + ")";
+            } else {
+                detailedStreamText = category;
             }
             
             var message = "Hello Bhargav Sir, my name is " + encodeURIComponent(name) + 
-                          ". I want to book a paid demo session for " + encodeURIComponent(finalDetails) + 
-                          ". Please provide me with the demo class timings and fee details.";
+                          ". I would like to book a paid demo session for: " + encodeURIComponent(detailedStreamText) + 
+                          ". Kindly share the fee schedule and digital payment directions.";
             
             var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + message;
             window.open(whatsappURL, '_blank');
         }
+        
+        // Run setup on first load
+        toggleFormFields();
     </script>
 </body>
 </html>
