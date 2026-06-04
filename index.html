@@ -13,6 +13,7 @@
             --light: #f8f9fa;
             --text: #333333;
             --success: #25D366;
+            --instagram: #E1306C; /* Instagram brand color */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
@@ -26,8 +27,11 @@
 
         .logo h1 { color: var(--primary); font-size: 1.4rem; }
         .logo span { color: var(--accent); }
+        nav { display: flex; align-items: center; }
         nav a { text-decoration: none; color: var(--dark); margin-left: 15px; font-weight: 600; }
         .cta-nav { background: var(--accent); color: white !important; padding: 8px 15px; border-radius: 5px; }
+        .insta-nav { background: var(--instagram); color: white !important; padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
+        .insta-nav:hover { opacity: 0.9; transform: translateY(-1px); }
 
         .hero {
             background: linear-gradient(135deg, rgba(10, 61, 98, 0.95), rgba(60, 99, 130, 0.9)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
@@ -117,7 +121,7 @@
 
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 12px; text-align: center; position: relative; }
-            nav a { margin: 0 8px; }
+            nav a { margin: 8px 8px; }
             .hero { padding-top: 30px; }
             .hero h2 { font-size: 1.8rem; }
             .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
@@ -132,6 +136,7 @@
             <a href="#home">Home</a>
             <a href="#courses">Courses & Tuition</a>
             <a href="#contact">Contact Us</a>
+            <a href="https://www.instagram.com/bhargavkaushik_institute?igsh=MWtra2I4dXltY3VzYg==" target="_blank" class="insta-nav">Instagram</a>
             <a href="tel:+919896470813" class="cta-nav">Call Center</a>
         </nav>
     </header>
@@ -204,12 +209,10 @@
         </div>
     </section>
 
-    <!-- POPUP DETAILS INTERLAY LOGIC CONFIGURATION -->
     <div class="form-overlay" id="bookingOverlay">
         <div class="form-interface">
-            <span class="close-btn" onclick="closeBookingForm()">&times;</span>
+            <span class="close-btn" onclick="closeBookingForm()">×</span>
             
-            <!-- Active Input Form State -->
             <div id="formFieldsState">
                 <h3>Registration Details</h3>
                 <p class="note">⚠️ Note: Demo Session Registration is Paid</p>
@@ -275,7 +278,6 @@
                 </form>
             </div>
 
-            <!-- Beautiful Internal Website Thank You Interface (Comes after hitting submit) -->
             <div id="thanksMessageState" class="thanks-screen">
                 <h4>✓ Details Submitted!</h4>
                 <p>Thank you for choosing Bhargav Kaushik Academy.</p>
@@ -307,12 +309,11 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Bhargav Kaushik Academy. All Rights Reserved.</p>
+        <p>© 2026 Bhargav Kaushik Academy. All Rights Reserved.</p>
     </footer>
 
     <script>
         function openBookingForm() {
-            // Reset the popup view states back to input fields whenever it's re-opened
             document.getElementById('formFieldsState').style.display = 'block';
             document.getElementById('thanksMessageState').style.display = 'none';
             document.getElementById('bookingOverlay').style.display = 'flex';
@@ -322,16 +323,20 @@
             document.getElementById('bookingOverlay').style.display = 'none';
         }
 
+        // Updated Function to handle both Class and Board dropdown wrappers
         function checkCourseSelection() {
             var selectedCourse = document.getElementById('stdCourse').value;
             var classWrapper = document.getElementById('classSelectWrapper');
+            var boardWrapper = document.getElementById('boardSelectWrapper');
             var boardSelect = document.getElementById('stdBoard');
             
             if(selectedCourse === "School Tuition") {
                 classWrapper.style.display = 'flex';
+                boardWrapper.style.display = 'flex';
                 boardSelect.value = "CBSE Board";
             } else {
                 classWrapper.style.display = 'none';
+                boardWrapper.style.display = 'none';
                 boardSelect.value = "Not Applicable";
             }
         }
@@ -352,7 +357,6 @@
 
             var destinationNumber = "919896470813";
             
-            // This is ONLY what the student sends to you via WhatsApp text block
             var absoluteMessage = "🚨 *NEW DEMO ENTRY RECIEVED* 🚨\n\n" +
                                   "• *Student Name:* " + name + "\n" +
                                   "• *Father's Name:* " + father + "\n" +
@@ -367,20 +371,15 @@
             
             absoluteMessage += "\n_Please send me the paid demo fee registration details._";
 
-            // 1. Open the WhatsApp tab to dispatch data
             var dispatchLink = "https://wa.me/" + destinationNumber + "?text=" + encodeURIComponent(absoluteMessage);
             window.open(dispatchLink, '_blank');
             
-            // 2. Hide input form fields inside the popup card framework
             document.getElementById('formFieldsState').style.display = 'none';
-            
-            // 3. Reveal the premium Thank You screen message inside the container
             document.getElementById('thanksMessageState').style.display = 'block';
-            
-            // Reset form fields
             document.getElementById('demoRegisterForm').reset();
         }
 
         checkCourseSelection();
     </script>
-
+</body>
+</html>
