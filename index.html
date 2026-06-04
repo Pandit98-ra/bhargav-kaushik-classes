@@ -13,7 +13,7 @@
             --light: #f8f9fa;
             --text: #333333;
             --success: #25D366;
-            --instagram: #E1306C; /* Instagram brand color */
+            --instagram: #E1306C;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
@@ -30,8 +30,7 @@
         nav { display: flex; align-items: center; }
         nav a { text-decoration: none; color: var(--dark); margin-left: 15px; font-weight: 600; }
         .cta-nav { background: var(--accent); color: white !important; padding: 8px 15px; border-radius: 5px; }
-        .insta-nav { background: var(--instagram); color: white !important; padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
-        .insta-nav:hover { opacity: 0.9; transform: translateY(-1px); }
+        .insta-nav { background: var(--instagram); color: white !important; padding: 8px 15px; border-radius: 5px; display: inline-flex; align-items: center; gap: 5px; }
 
         .hero {
             background: linear-gradient(135deg, rgba(10, 61, 98, 0.95), rgba(60, 99, 130, 0.9)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
@@ -121,7 +120,8 @@
 
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 12px; text-align: center; position: relative; }
-            nav a { margin: 8px 8px; }
+            nav { flex-direction: column; gap: 8px; }
+            nav a { margin: 0; }
             .hero { padding-top: 30px; }
             .hero h2 { font-size: 1.8rem; }
             .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
@@ -136,8 +136,11 @@
             <a href="#home">Home</a>
             <a href="#courses">Courses & Tuition</a>
             <a href="#contact">Contact Us</a>
-            <a href="https://www.instagram.com/bhargavkaushik_institute?igsh=MWtra2I4dXltY3VzYg==" target="_blank" class="insta-nav">Instagram</a>
             <a href="tel:+919896470813" class="cta-nav">Call Center</a>
+            <a href="https://www.instagram.com/bhargavkaushik_institute?igsh=MWtra2I4dXltY3VzYg==" target="_blank" class="insta-nav">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+            </a>
         </nav>
     </header>
 
@@ -253,7 +256,7 @@
                             <select id="stdBoard">
                                 <option value="CBSE Board">CBSE Board</option>
                                 <option value="HBSE Board">HBSE Board</option>
-                                <option value="Not Applicable">Not Applicable</option>
+                                <option value="Not Applicable" id="naOption">Not Applicable</option>
                             </select>
                         </div>
                     </div>
@@ -323,20 +326,24 @@
             document.getElementById('bookingOverlay').style.display = 'none';
         }
 
-        // Updated Function to handle both Class and Board dropdown wrappers
         function checkCourseSelection() {
             var selectedCourse = document.getElementById('stdCourse').value;
             var classWrapper = document.getElementById('classSelectWrapper');
             var boardWrapper = document.getElementById('boardSelectWrapper');
             var boardSelect = document.getElementById('stdBoard');
+            var naOption = document.getElementById('naOption');
             
             if(selectedCourse === "School Tuition") {
                 classWrapper.style.display = 'flex';
                 boardWrapper.style.display = 'flex';
-                boardSelect.value = "CBSE Board";
+                naOption.style.display = 'none'; // Completely hide "Not Applicable" option from list
+                if(boardSelect.value === "Not Applicable") {
+                    boardSelect.value = "CBSE Board"; // Default to valid board selection
+                }
             } else {
                 classWrapper.style.display = 'none';
-                boardWrapper.style.display = 'none';
+                boardWrapper.style.display = 'none'; // Hide the entire row wrapper for language courses
+                naOption.style.display = 'block';
                 boardSelect.value = "Not Applicable";
             }
         }
@@ -376,6 +383,7 @@
             
             document.getElementById('formFieldsState').style.display = 'none';
             document.getElementById('thanksMessageState').style.display = 'block';
+            
             document.getElementById('demoRegisterForm').reset();
         }
 
