@@ -383,19 +383,4 @@
 
         checkCourseSelection();
     </script>
-function checkCourseSelection() {
-    var selectedCourse = document.getElementById('stdCourse').value;
-    var classWrapper = document.getElementById('classSelectWrapper');
-    var boardWrapper = document.getElementById('boardSelectWrapper'); // Targets the board row container
-    var boardSelect = document.getElementById('stdBoard');
-    
-    if(selectedCourse === "School Tuition") {
-        classWrapper.style.display = 'flex';
-        boardWrapper.style.display = 'flex';   // Shows the board dropdown row
-        boardSelect.value = "CBSE Board";
-    } else {
-        classWrapper.style.display = 'none';
-        boardWrapper.style.display = 'none';   // Hides the board dropdown row completely
-        boardSelect.value = "Not Applicable";
-    }
-}
+
