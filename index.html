@@ -27,8 +27,8 @@
 
         .logo h1 { color: var(--primary); font-size: 1.4rem; }
         .logo span { color: var(--accent); }
-        nav { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; }
+        nav { display: flex; align-items: center; }
+        nav a { text-decoration: none; color: var(--dark); margin-left: 15px; font-weight: 600; }
         .cta-nav { background: var(--accent); color: white !important; padding: 8px 15px; border-radius: 5px; }
         .insta-nav { background: var(--instagram); color: white !important; padding: 8px 15px; border-radius: 5px; display: inline-flex; align-items: center; gap: 5px; }
 
@@ -50,7 +50,7 @@
         .academic-section { padding: 80px 5%; background: white; text-align: center; }
         .section-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
         .section-subtitle { color: var(--secondary); margin-bottom: 50px; font-weight: 500; font-size: 1.1rem; }
-
+        
         .class-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px; max-width: 1200px; margin: 0 auto;
@@ -63,14 +63,15 @@
         .class-column.premium { border-top-color: var(--accent); }
         .class-column h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; border-bottom: 2px solid #ddd; padding-bottom: 8px; }
         .class-column.premium h3 { color: var(--accent); }
-
+        
         .class-column ul { list-style: none; }
         .class-column li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: flex-start; }
         .class-column li::before { content: "✓"; color: #2ecc71; font-weight: bold; margin-right: 8px; }
-
+        
         .board-tag { display: inline-block; background: #0984e3; color: white; padding: 1px 5px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; margin-left: 5px; }
         .board-tag.hbse { background: #e17055; }
 
+        /* Popups Configurations */
         .form-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.7); display: none; justify-content: center;
@@ -82,13 +83,13 @@
             position: relative; animation: slideDown 0.4s ease;
         }
         @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; border: none; background: transparent; }
+        
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; }
         .close-btn:hover { color: #333; }
-
+        
         .form-interface h3 { color: var(--primary); margin-bottom: 5px; font-size: 1.6rem; text-align: center; }
         .form-interface p.note { color: var(--accent); font-weight: bold; font-size: 0.9rem; text-align: center; margin-bottom: 20px; }
-
+        
         .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
         .form-group label { font-weight: 600; font-size: 0.85rem; margin-bottom: 5px; color: var(--dark); }
@@ -96,5 +97,297 @@
             padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 0.95rem; background: #fff;
         }
         .form-group textarea { resize: none; height: 60px; }
-
+        
         .btn-submit {
+            display: block; width: 100%; background: var(--success); color: white; padding: 12px;
+            border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+            text-align: center; text-decoration: none; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        .btn-submit:hover { background: #128C7E; }
+
+        /* Brand New Success Screen Placement */
+        .thanks-screen {
+            display: none; text-align: center; padding: 20px 10px;
+        }
+        .thanks-screen h4 { color: #2ecc71; font-size: 1.8rem; margin-bottom: 15px; }
+        .thanks-screen p { color: var(--dark); font-size: 1.05rem; margin-bottom: 20px; font-weight: 500; }
+        .thanks-screen .box-info { background: var(--light); padding: 15px; border-radius: 5px; font-size: 0.9rem; text-align: left; border-left: 4px solid var(--accent); margin-bottom: 25px;}
+
+        .contact-zone { padding: 60px 5%; background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .address-box { background: white; padding: 20px; border-left: 5px solid var(--accent); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .map-container { border-radius: 8px; overflow: hidden; height: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        footer { background: var(--dark); color: white; text-align: center; padding: 20px; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 12px; text-align: center; position: relative; }
+            nav { flex-direction: column; gap: 8px; }
+            nav a { margin: 0; }
+            .hero { padding-top: 30px; }
+            .hero h2 { font-size: 1.8rem; }
+            .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h1>Bhargav Kaushik <span>Academy</span></h1></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#courses">Courses & Tuition</a>
+            <a href="#contact">Contact Us</a>
+            <a href="tel:+919896470813" class="cta-nav">Call Center</a>
+            <a href="https://www.instagram.com/bhargavkaushik_institute?igsh=MWtra2I4dXltY3VzYg==" target="_blank" class="insta-nav">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Premium Education & Language Institute</h2>
+        <p>Your pathway to massive scores in CBSE/HBSE board setups and targeted global benchmarks for IELTS candidates.</p>
+        <button class="btn-trigger" onclick="openBookingForm()">Book Paid Demo Class</button>
+    </section>
+
+    <section class="academic-section" id="courses">
+        <h2 class="section-title">Academic Wings & Programs</h2>
+        <p class="section-subtitle">Dedicated Subject Batches Built for Comprehensive Board Requirements</p>
+        
+        <div class="class-grid">
+            <div class="class-column">
+                <h3>Primary Wing</h3>
+                <ul>
+                    <li><strong>Target Classes:</strong> 3rd, 4th, and 5th Standard</li>
+                    <li><strong>Boards:</strong> CBSE <span class="board-tag">CBSE</span> & HBSE <span class="board-tag hbse">HBSE</span></li>
+                    <li>Complete basic foundational concept building exercises</li>
+                    <li>Individual subject work coverage maps</li>
+                    <li>Weekly tests to monitor learning growth patterns</li>
+                </ul>
+            </div>
+
+            <div class="class-column">
+                <h3>Middle School</h3>
+                <ul>
+                    <li><strong>Target Classes:</strong> 6th, 7th, and 8th Standard</li>
+                    <li><strong>Boards:</strong> CBSE <span class="board-tag">CBSE</span> & HBSE <span class="board-tag hbse">HBSE</span></li>
+                    <li>Focused conceptual routines for Mathematics & Sciences</li>
+                    <li>Structured basic English grammar modules</li>
+                    <li>Daily home assessment review cycles</li>
+                </ul>
+            </div>
+
+            <div class="class-column">
+                <h3>High Secondary</h3>
+                <ul>
+                    <li><strong>Target Classes:</strong> 9th, 10th, 11th, and 12th Standard</li>
+                    <li><strong>Boards:</strong> CBSE <span class="board-tag">CBSE</span> & HBSE <span class="board-tag hbse">HBSE</span></li>
+                    <li>Rigorous board preparation patterns & timeline grids</li>
+                    <li>Past board examination problem resolutions</li>
+                    <li>Early syllabus completion for revisions</li>
+                </ul>
+            </div>
+
+            <div class="class-column premium">
+                <h3>IELTS Mastery</h3>
+                <ul>
+                    <li><strong>Listening:</strong> Context navigation blueprints</li>
+                    <li><strong>Reading:</strong> Strategic pacing & scanning drills</li>
+                    <li><strong>Writing:</strong> Precise Task 1 & 2 structural matrices</li>
+                    <li><strong>Speaking:</strong> Daily live evaluation runs</li>
+                    <li>Cambridge practice reference textbooks provided</li>
+                </ul>
+            </div>
+
+            <div class="class-column premium">
+                <h3>Spoken English</h3>
+                <ul>
+                    <li>Systematic accent correction schedules</li>
+                    <li>Active sentence formation and vocabulary drills</li>
+                    <li>Public presentation loops & hesitation removal</li>
+                    <li>Real-life context mock interactions</li>
+                    <li>Ideal for corporate interview pathways</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-overlay" id="bookingOverlay">
+        <div class="form-interface">
+            <span class="close-btn" onclick="closeBookingForm()">×</span>
+            
+            <div id="formFieldsState">
+                <h3>Registration Details</h3>
+                <p class="note">⚠️ Note: Demo Session Registration is Paid</p>
+                
+                <form id="demoRegisterForm">
+                    <div class="form-group">
+                        <label for="stdName">Student Full Name:</label>
+                        <input type="text" id="stdName" placeholder="Enter student name" required>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="stdFather">Father's Name:</label>
+                            <input type="text" id="stdFather" placeholder="Father's name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stdMobile">Mobile Number:</label>
+                            <input type="tel" id="stdMobile" placeholder="10-digit phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stdAddress">Complete Home Address:</label>
+                        <textarea id="stdAddress" placeholder="Enter street, village/colony details" required></textarea>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="stdCourse">Select Stream/Course:</label>
+                            <select id="stdCourse" onchange="checkCourseSelection()">
+                                <option value="School Tuition">School Tuition (3rd-12th)</option>
+                                <option value="IELTS Masterclass">IELTS Masterclass</option>
+                                <option value="Spoken English Fluency">Spoken English Fluency</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="boardSelectWrapper">
+                            <label for="stdBoard">Educational Board:</label>
+                            <select id="stdBoard">
+                                <option value="CBSE Board">CBSE Board</option>
+                                <option value="HBSE Board">HBSE Board</option>
+                                <option value="Not Applicable" id="naOption">Not Applicable</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="classSelectWrapper">
+                        <label for="stdClass">Select Target Class (For Tuition Only):</label>
+                        <select id="stdClass">
+                            <option value="3rd Class">3rd Class</option>
+                            <option value="4th Class">4th Class</option>
+                            <option value="5th Class">5th Class</option>
+                            <option value="6th Class">6th Class</option>
+                            <option value="7th Class">7th Class</option>
+                            <option value="8th Class">8th Class</option>
+                            <option value="9th Class">9th Class</option>
+                            <option value="10th Class">10th Class</option>
+                            <option value="11th Class">11th Class</option>
+                            <option value="12th Class">12th Class</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-submit" onclick="processRegistration()">Send Details via WhatsApp</button>
+                </form>
+            </div>
+
+            <div id="thanksMessageState" class="thanks-screen">
+                <h4>✓ Details Submitted!</h4>
+                <p>Thank you for choosing Bhargav Kaushik Academy.</p>
+                <div class="box-info">
+                    <strong>Next Steps for Student:</strong><br>
+                    1. Send the generated WhatsApp message in your chat track.<br>
+                    2. Our desk team will share the fee transaction link directly.<br>
+                    3. Once confirmed, your entry demo slot timing will activate.
+                </div>
+                <button type="button" class="btn-trigger" style="padding:10px 25px; font-size:1rem;" onclick="closeBookingForm()">Close Window</button>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="contact-zone" id="contact">
+        <div class="contact-info">
+            <h3>Visit Our Premium Facility</h3>
+            <div class="address-box">
+                <p><strong>Bhargav Kaushik IELTS & Spoken Classes</strong></p>
+                <p>On Road, First Floor, Above Royal Enfield Showroom (KBS Wheels),</p>
+                <p>Near TVS Agency, Barwala Road, Raipur Rani, Haryana 134204</p>
+            </div>
+            <p style="margin-top: 15px;"><strong>Operating Hours:</strong> Monday – Saturday: 8:00 AM to 6:00 PM</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.730248439972!2d76.9945324!3d30.613386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ed3292edb7683%3A0xb11466288ccc75e6!2sBhargav%20Kaushik%20IELTS%20%26%20Spoken%20Classes!5e0!3m2!1sen!2sin!4v1717361000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Bhargav Kaushik Academy. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openBookingForm() {
+            document.getElementById('formFieldsState').style.display = 'block';
+            document.getElementById('thanksMessageState').style.display = 'none';
+            document.getElementById('bookingOverlay').style.display = 'flex';
+        }
+
+        function closeBookingForm() {
+            document.getElementById('bookingOverlay').style.display = 'none';
+        }
+
+        function checkCourseSelection() {
+            var selectedCourse = document.getElementById('stdCourse').value;
+            var classWrapper = document.getElementById('classSelectWrapper');
+            var boardWrapper = document.getElementById('boardSelectWrapper');
+            var boardSelect = document.getElementById('stdBoard');
+            var naOption = document.getElementById('naOption');
+            
+            if(selectedCourse === "School Tuition") {
+                classWrapper.style.display = 'flex';
+                boardWrapper.style.display = 'flex';
+                naOption.style.display = 'none'; // Completely hide "Not Applicable" option from list
+                if(boardSelect.value === "Not Applicable") {
+                    boardSelect.value = "CBSE Board"; // Default to valid board selection
+                }
+            } else {
+                classWrapper.style.display = 'none';
+                boardWrapper.style.display = 'none'; // Hide the entire row wrapper for language courses
+                naOption.style.display = 'block';
+                boardSelect.value = "Not Applicable";
+            }
+        }
+
+        function processRegistration() {
+            var name = document.getElementById('stdName').value.trim();
+            var father = document.getElementById('stdFather').value.trim();
+            var mobile = document.getElementById('stdMobile').value.trim();
+            var address = document.getElementById('stdAddress').value.trim();
+            var course = document.getElementById('stdCourse').value;
+            var board = document.getElementById('stdBoard').value;
+            var targetClass = document.getElementById('stdClass').value;
+
+            if(name === "" || father === "" || mobile === "" || address === "") {
+                alert("Please fill out all the registration fields accurately!");
+                return;
+            }
+
+            var destinationNumber = "919896470813";
+            
+            var absoluteMessage = "🚨 *NEW DEMO ENTRY RECIEVED* 🚨\n\n" +
+                                  "• *Student Name:* " + name + "\n" +
+                                  "• *Father's Name:* " + father + "\n" +
+                                  "• *Mobile Number:* " + mobile + "\n" +
+                                  "• *Home Address:* " + address + "\n";
+            
+            if(course === "School Tuition") {
+                absoluteMessage += "• *Course Stream:* Tuition (" + targetClass + " - " + board + ")\n";
+            } else {
+                absoluteMessage += "• *Course Stream:* " + course + "\n";
+            }
+            
+            absoluteMessage += "\n_Please send me the paid demo fee registration details._";
+
+            var dispatchLink = "https://wa.me/" + destinationNumber + "?text=" + encodeURIComponent(absoluteMessage);
+            window.open(dispatchLink, '_blank');
+            
+            document.getElementById('formFieldsState').style.display = 'none';
+            document.getElementById('thanksMessageState').style.display = 'block';
+            
+            document.getElementById('demoRegisterForm').reset();
+        }
+
+        checkCourseSelection();
+    </script>
+</body>
+</html>
